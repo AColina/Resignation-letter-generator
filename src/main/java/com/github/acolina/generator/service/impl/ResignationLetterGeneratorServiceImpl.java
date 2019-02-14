@@ -6,6 +6,7 @@ import com.github.acolina.generator.model.entity.Profession;
 import com.github.acolina.generator.model.request.ResignationLetter;
 import com.github.acolina.generator.service.ProfessionalService;
 import com.github.acolina.generator.service.ResignationLetterGeneratorService;
+import org.apache.commons.lang.StringUtils;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,6 +62,10 @@ public class ResignationLetterGeneratorServiceImpl implements ResignationLetterG
         Profession profession = optional.orElseThrow(() -> EntityNotFoundException.createInstance(resignationLetter.getProfesion()));
 
         dto.setProfession(profession.getAcronimo());
+
+        if(StringUtils.isEmpty(dto.getMotivo())){
+            dto.setMotivo(environment.getProperty("motivo"));
+        }
         return dto;
     }
 
