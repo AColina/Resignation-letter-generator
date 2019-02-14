@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="resignation_letter" pageWidth="595" pageHeight="842" whenNoDataType="NoDataSection" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8e5136e2-444b-468e-bffb-192e71de1fd8">
+	<parameter name="dto" class="com.githud.acolina.generator.model.dto.ResignationLetterDTO"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="20" width="139" height="30" uuid="fbd09f4c-771a-4b5d-9183-26e55048e898"/>
+				<textFieldExpression><![CDATA[$P{dto}.getCiudad()+", "+$P{dto}.getPais()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="460" y="20" width="100" height="30" uuid="f72f7c63-2eb3-4239-905a-8eb2dd0e8f67"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$P{dto}.getFecha()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="238" y="29" width="100" height="30" uuid="968b4a2f-afe0-4ae8-993a-575f0d63da44"/>
+				<text><![CDATA[mmavo]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="162" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="280" height="19" uuid="4b280375-2621-4db7-b82b-e67cf83758ff"/>
+				<textFieldExpression><![CDATA[$P{dto}.getSexo()+" "+$P{dto}.getProfession()+" "+$P{dto}.getNombreJefe()+" "+$P{dto}.getApellidoJefe()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="30" width="560" height="30" uuid="c28bcba8-fdd4-4033-a30a-7e51c33d3e7b"/>
+				<textElement textAlignment="Justified"/>
+				<textFieldExpression><![CDATA[$P{dto}.getMessage1();]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="60" width="560" height="30" uuid="13e293c7-697d-4cca-9d99-a17ee769c61e"/>
+				<textElement textAlignment="Justified"/>
+				<textFieldExpression><![CDATA[$P{dto}.getMotivo()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="90" width="560" height="30" uuid="7e344eb8-0f12-49eb-b0c1-2c08cabd598d"/>
+				<textElement textAlignment="Justified"/>
+				<textFieldExpression><![CDATA[$P{dto}.getMessage2();]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="120" width="560" height="30" uuid="fa01fb28-6df4-4266-9be2-0a1971606eba"/>
+				<textElement textAlignment="Justified"/>
+				<textFieldExpression><![CDATA[$P{dto}.getMessage3()]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<lastPageFooter>
+		<band height="50">
+			<textField>
+				<reportElement x="0" y="0" width="280" height="30" uuid="cdb6b48d-8301-4160-ae9b-e6fc99faddbb"/>
+				<textFieldExpression><![CDATA[$P{dto}.getLastPage()]]></textFieldExpression>
+			</textField>
+		</band>
+	</lastPageFooter>
+</jasperReport>
